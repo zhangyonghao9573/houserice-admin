@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: short-link-admin
+  datasource:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/houserice?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: qq1104380920
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: qq1104380920
