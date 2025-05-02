@@ -1,4 +1,4 @@
-package com.luobida.houserice.admin.common.errorcode;
+package com.luobida.houserice.admin.common.convention.errorcode;
 
 /**
  * 错误码接口
