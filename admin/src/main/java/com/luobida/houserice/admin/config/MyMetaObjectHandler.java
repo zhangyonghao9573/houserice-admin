@@ -1,4 +1,4 @@
-package com.luobida.houserice.project.config;
+package com.luobida.houserice.admin.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;

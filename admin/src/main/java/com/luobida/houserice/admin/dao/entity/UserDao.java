@@ -1,4 +1,4 @@
-package com.luobida.houserice.project.dao.entity;
+package com.luobida.houserice.admin.dao.entity;
 
 import lombok.Data;
 

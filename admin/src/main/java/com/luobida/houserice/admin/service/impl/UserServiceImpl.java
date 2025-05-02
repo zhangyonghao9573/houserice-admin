@@ -1,5 +1,6 @@
-package com.luobida.houserice.project.service.impl;
+package com.luobida.houserice.admin.service.impl;
 
+import com.luobida.houserice.admin.service.UserService;
 import com.luobida.houserice.project.service.UserService;
 import org.springframework.stereotype.Service;
 

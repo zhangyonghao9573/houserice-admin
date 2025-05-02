@@ -1,4 +1,4 @@
-package com.luobida.houserice.project.common.Dao;
+package com.luobida.houserice.admin.common.dao;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

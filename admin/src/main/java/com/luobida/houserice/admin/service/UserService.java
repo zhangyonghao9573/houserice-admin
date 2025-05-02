@@ -1,4 +1,4 @@
-package com.luobida.houserice.project.service;
+package com.luobida.houserice.admin.service;
 
 /**
  * 用户服务接口
