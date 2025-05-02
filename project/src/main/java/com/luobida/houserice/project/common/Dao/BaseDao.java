@@ -5,6 +5,10 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * 持久层对象公共属性
+ */
 @Data
 public class BaseDao {
 
