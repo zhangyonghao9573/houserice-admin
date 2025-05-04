@@ -4,7 +4,6 @@ import com.luobida.houserice.admin.common.convention.Result;
 import com.luobida.houserice.admin.common.convention.Results;
 import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
 import com.luobida.houserice.admin.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
