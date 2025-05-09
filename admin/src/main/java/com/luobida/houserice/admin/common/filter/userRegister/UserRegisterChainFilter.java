@@ -9,6 +9,10 @@ import static com.luobida.houserice.admin.common.enums.ChainMarkEnum.USER_REGIST
  * 抽象用户注册责任链
  */
 public interface UserRegisterChainFilter extends AbstractChainHandler<UserRegisterReqDTO> {
+    /**
+     * 获取责任链标识
+     * @return
+     */
     default String mark() {
         return USER_REGISTER_CHAIN_MARK.name();
     }

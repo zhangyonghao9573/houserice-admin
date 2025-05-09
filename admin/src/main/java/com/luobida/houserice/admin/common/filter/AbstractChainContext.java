@@ -10,6 +10,10 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 责任链上下文
+ * @param <T>
+ */
 @RequiredArgsConstructor
 @Component
 public class AbstractChainContext<T> implements CommandLineRunner {

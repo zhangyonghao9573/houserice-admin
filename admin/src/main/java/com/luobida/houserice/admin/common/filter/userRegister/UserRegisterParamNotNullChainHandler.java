@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * 检查注册请求参数是否为空
+ */
 @Component
 public class UserRegisterParamNotNullChainHandler implements UserRegisterChainFilter{
     @Override

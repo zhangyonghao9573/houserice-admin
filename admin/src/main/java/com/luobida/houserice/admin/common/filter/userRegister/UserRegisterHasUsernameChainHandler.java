@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import static com.luobida.houserice.admin.common.enums.UserErrorCodeEnum.USER_NAME_EXIST;
 
+/**
+ * 检查用户是否注册
+ */
 @RequiredArgsConstructor
 @Component
 public class UserRegisterHasUsernameChainHandler implements UserRegisterChainFilter {
