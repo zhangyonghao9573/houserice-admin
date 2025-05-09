@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.luobida.houserice.admin.common.convention.exception.ClientException;
 import com.luobida.houserice.admin.common.convention.exception.ServiceException;
+import com.luobida.houserice.admin.common.filter.AbstractChainContext;
 import com.luobida.houserice.admin.dao.entity.UserDao;
 import com.luobida.houserice.admin.dao.mapper.UserMapper;
 import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
@@ -24,6 +25,7 @@ import org.springframework.util.ObjectUtils;
 
 import static com.luobida.houserice.admin.common.constant.RedisCacheConstant.LOCK_USER_REGISTER_LOCK;
 import static com.luobida.houserice.admin.common.convention.errorcode.BaseErrorCode.CLIENT_ERROR;
+import static com.luobida.houserice.admin.common.enums.ChainMarkEnum.USER_REGISTER_CHAIN_MARK;
 import static com.luobida.houserice.admin.common.enums.UserErrorCodeEnum.*;
 
 /**
@@ -35,15 +37,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDao> implements
 
     private final RBloomFilter<String> userRegisterCachePenetrationBloomFilter;
     private final RedissonClient redissonClient;
+    private final AbstractChainContext  chainContext;
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void register(UserRegisterReqDTO requestParam) {
-        if(ObjectUtils.isEmpty(requestParam)) throw new ClientException(CLIENT_ERROR);
-        if (hasUserName(requestParam.getUsername())) {
-            throw new ServiceException(USER_NAME_EXIST);
-        }
+        chainContext.handler(USER_REGISTER_CHAIN_MARK.name(), requestParam);
         RLock lock = redissonClient.getLock(LOCK_USER_REGISTER_LOCK + requestParam.getUsername());
-        if (lock.tryLock()) throw new ServiceException(USER_NAME_EXIST);
+        if (!lock.tryLock()) throw new ServiceException(USER_NAME_EXIST);
         try {
             int inserted = baseMapper.insert(BeanUtil.toBean(requestParam, UserDao.class));
             userRegisterCachePenetrationBloomFilter.add(requestParam.getUsername());
@@ -57,7 +57,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDao> implements
         }
     }
 
-    private boolean hasUserName(String username) {
+     public boolean hasUserName(String username) {
         return userRegisterCachePenetrationBloomFilter.contains(username);
     }
 }
