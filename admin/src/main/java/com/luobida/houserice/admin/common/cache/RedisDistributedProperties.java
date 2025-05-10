@@ -1,9 +1,11 @@
 package com.luobida.houserice.admin.common.cache;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 @Data
+@Component
 public class RedisDistributedProperties {
     public static final String PREFIX = "framework.cache.redis";
 
