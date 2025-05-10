@@ -1,6 +1,8 @@
 package com.luobida.houserice.admin.service;
 
-import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserLoginReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.resp.user.UserLoginRespDTO;
 
 /**
  * 用户服务接口
@@ -20,4 +22,9 @@ public interface UserService {
      */
     boolean hasUserName(String username);
 
+    /**
+     * 用户登录
+     * @param requestParam
+     */
+    UserLoginRespDTO login(UserLoginReqDTO requestParam);
 }

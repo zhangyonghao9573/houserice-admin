@@ -2,29 +2,32 @@ package com.luobida.houserice.admin.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.luobida.houserice.admin.common.cache.DistributedCache.DistributedCache;
 import com.luobida.houserice.admin.common.convention.exception.ClientException;
 import com.luobida.houserice.admin.common.convention.exception.ServiceException;
+import com.luobida.houserice.admin.common.dto.UserInfoDTO;
 import com.luobida.houserice.admin.common.filter.AbstractChainContext;
 import com.luobida.houserice.admin.dao.entity.UserDao;
 import com.luobida.houserice.admin.dao.mapper.UserMapper;
-import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserLoginReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.resp.user.UserLoginRespDTO;
 import com.luobida.houserice.admin.service.UserService;
+import com.luobida.houserice.admin.toolkit.TokenUtils;
 import lombok.RequiredArgsConstructor;
-import org.redisson.Redisson;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.BeanUtils;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.ObjectUtils;
+
+import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static com.luobida.houserice.admin.common.constant.RedisCacheConstant.LOCK_USER_REGISTER_LOCK;
-import static com.luobida.houserice.admin.common.convention.errorcode.BaseErrorCode.CLIENT_ERROR;
 import static com.luobida.houserice.admin.common.enums.ChainMarkEnum.USER_REGISTER_CHAIN_MARK;
 import static com.luobida.houserice.admin.common.enums.UserErrorCodeEnum.*;
 
@@ -38,6 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDao> implements
     private final RBloomFilter<String> userRegisterCachePenetrationBloomFilter;
     private final RedissonClient redissonClient;
     private final AbstractChainContext  chainContext;
+    private final DistributedCache  distributedCache;
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void register(UserRegisterReqDTO requestParam) {
@@ -59,5 +63,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserDao> implements
 
      public boolean hasUserName(String username) {
         return userRegisterCachePenetrationBloomFilter.contains(username);
+    }
+
+    @Override
+    public UserLoginRespDTO login(UserLoginReqDTO requestParam) {
+        if (!hasUserName(requestParam.getUsername())) {
+            throw new ServiceException(USER_NULL);
+        }
+        LambdaQueryWrapper<UserDao> userDaoQueryWrapper = Wrappers.lambdaQuery(UserDao.class)
+                .eq(UserDao::getUsername, requestParam.getUsername())
+                .eq(UserDao::getPassword, requestParam.getPassword())
+                .eq(UserDao::getDelFlag, UserDao.UN_DELETED);
+        UserDao userDao = baseMapper.selectOne(userDaoQueryWrapper);
+        if (userDao != null) {
+            UserInfoDTO userInfoDTO = UserInfoDTO.builder()
+                    .phone(userDao.getPhone())
+                    .realName(userDao.getRealName())
+                    .username(userDao.getUsername())
+                    .build();
+            String accessToken = TokenUtils.generateToken(requestParam.getUsername());
+            distributedCache.put(accessToken, userInfoDTO, 30, TimeUnit.MINUTES);
+            UserLoginRespDTO response = UserLoginRespDTO.builder()
+                    .username(userInfoDTO.getUsername())
+                    .realName(userInfoDTO.getRealName())
+                    .accessToken(accessToken)
+                    .build();
+            return response;
+        }
+        throw new ServiceException("密码错误或账号已注销");
+
     }
 }
