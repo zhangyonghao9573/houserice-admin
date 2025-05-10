@@ -29,4 +29,7 @@ public class BaseDao {
      */
     @TableField(fill = FieldFill.INSERT)
     private Integer delFlag;
+
+    public static final String UN_DELETED = "0";
+    public static final String DELETED = "1";
 }
