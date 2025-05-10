@@ -6,10 +6,12 @@ import com.luobida.houserice.admin.toolkit.FastJson2Util;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
+@Component
 public class StringRedisTemplateProxy implements DistributedCache{
 
     private final StringRedisTemplate stringRedisTemplate;
