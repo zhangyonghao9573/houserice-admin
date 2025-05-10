@@ -1,4 +1,4 @@
-package com.luobida.houserice.admin.dto.req;
+package com.luobida.houserice.admin.dto.req.user;
 
 import lombok.Data;
 

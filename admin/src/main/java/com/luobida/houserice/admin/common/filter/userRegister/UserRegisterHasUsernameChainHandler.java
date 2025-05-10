@@ -1,7 +1,7 @@
 package com.luobida.houserice.admin.common.filter.userRegister;
 
 import com.luobida.houserice.admin.common.convention.exception.ServiceException;
-import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
 import com.luobida.houserice.admin.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

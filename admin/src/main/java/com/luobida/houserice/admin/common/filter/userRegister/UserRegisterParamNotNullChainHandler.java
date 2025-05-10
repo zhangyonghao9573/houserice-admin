@@ -1,9 +1,8 @@
 package com.luobida.houserice.admin.common.filter.userRegister;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.luobida.houserice.admin.common.convention.exception.ClientException;
 import com.luobida.houserice.admin.common.enums.UserRegisterErrorCodeEnum;
-import com.luobida.houserice.admin.dto.req.UserRegisterReqDTO;
+import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
