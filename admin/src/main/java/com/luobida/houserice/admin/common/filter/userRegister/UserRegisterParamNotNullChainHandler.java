@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
+ * @author zhangyonghao
  * 检查注册请求参数是否为空
  */
 @Component

@@ -8,6 +8,7 @@ import lombok.NonNull;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * @author zhangyonghao
  * 抽象分布式缓存接口
  */
 public interface DistributedCache extends ICache {

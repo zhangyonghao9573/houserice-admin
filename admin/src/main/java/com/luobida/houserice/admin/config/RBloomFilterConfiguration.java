@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * @author zhangyonghao
  * 步隆过滤器
  */
 @Configuration(value = "rBloomFilterConfigurationByAdmin")

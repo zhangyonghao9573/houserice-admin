@@ -3,6 +3,7 @@ package com.luobida.houserice.admin.common.convention.exception;
 import com.luobida.houserice.admin.common.convention.errorcode.IErrorCode;
 
 /**
+ * @author zhangyonghao
  * 客户端异常
  */
 public class ClientException extends AbstractException{

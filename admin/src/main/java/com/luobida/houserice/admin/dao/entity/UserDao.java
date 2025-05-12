@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
+ * @author zhangyonghao
  * 用户持久层对象
  */
 @Data

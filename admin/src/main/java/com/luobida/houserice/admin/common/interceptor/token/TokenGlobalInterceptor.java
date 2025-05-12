@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Objects;
 
 /**
+ * @author zhangyonghao
  * token全局拦截器，拦截白名单外的请求
  */
 @Data
@@ -35,7 +36,7 @@ public class TokenGlobalInterceptor implements HandlerInterceptor {
             String TokenStr = redisTemplate.opsForValue().get(acceessToken);
             UserInfoDTO userInfoDTO = JSON.parseObject(TokenStr, FastJson2Util.buildType(UserInfoDTO.class));
             userInfoDTO.setAccessToken(acceessToken);
-            //TODO 将用户存入上下文
+
         }
         return true;
     }

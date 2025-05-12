@@ -6,6 +6,10 @@ import com.luobida.houserice.admin.common.convention.exception.AbstractException
 
 import java.util.Optional;
 
+/**
+ * @author zhangyonghao
+ * 返回结果工具类
+ */
 public final class Results {
 
     /**

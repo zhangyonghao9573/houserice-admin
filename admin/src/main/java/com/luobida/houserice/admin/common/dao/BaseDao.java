@@ -7,6 +7,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
+ * @author zhangyonghao
  * 持久层对象公共属性
  */
 @Data

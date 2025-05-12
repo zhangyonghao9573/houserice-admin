@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+/**
+ * @author zhangyonghao
+ * 启动类
+ */
 @SpringBootApplication
 @MapperScan("com.luobida.houserice.admin.dao.mapper")
 @ConfigurationPropertiesScan

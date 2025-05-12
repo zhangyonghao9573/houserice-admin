@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author zhangyonghao
+ * redis模版代理类
+ */
 @RequiredArgsConstructor
 @Component
 public class StringRedisTemplateProxy implements DistributedCache{

@@ -31,6 +31,7 @@ import static com.luobida.houserice.admin.common.enums.ChainMarkEnum.USER_REGIST
 import static com.luobida.houserice.admin.common.enums.UserErrorCodeEnum.*;
 
 /**
+ * @author zhangyonghao
  * 用户服务实现类
  */
 @Service

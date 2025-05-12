@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
+ * @author zhangyonghao
  * 用户信息
  */
 @Data

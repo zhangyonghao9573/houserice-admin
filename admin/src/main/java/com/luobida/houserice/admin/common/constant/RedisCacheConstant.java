@@ -1,5 +1,9 @@
 package com.luobida.houserice.admin.common.constant;
 
+/**
+ * @author zhangyonghao
+ * redis 缓存常量
+ */
 public class RedisCacheConstant {
     /**
      * 用户注册分布式锁

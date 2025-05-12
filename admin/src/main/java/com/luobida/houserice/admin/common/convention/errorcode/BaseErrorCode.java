@@ -1,6 +1,7 @@
 package com.luobida.houserice.admin.common.convention.errorcode;
 
 /**
+ * @author zhangyonghao
  * 基础错误码定义
  */
 public enum BaseErrorCode implements IErrorCode{

@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * @author zhangyonghao
+ * 白名单配置
+ */
 @Data
 @Component
 @ConfigurationProperties(prefix = "house-rice.filters.token")

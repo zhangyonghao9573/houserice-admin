@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
+ * @author zhangyonghao
  * token刷新拦截器，用户刷新token有效期
  */
 @AllArgsConstructor

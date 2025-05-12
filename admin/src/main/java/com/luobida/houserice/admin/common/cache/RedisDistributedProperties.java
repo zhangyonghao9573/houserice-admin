@@ -4,6 +4,11 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
+
+/**
+ * @author zhangyonghao
+ * redis  缓存属性
+ */
 @Data
 @Component
 public class RedisDistributedProperties {

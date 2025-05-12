@@ -3,6 +3,7 @@ package com.luobida.houserice.admin.common.enums;
 import com.luobida.houserice.admin.common.convention.errorcode.IErrorCode;
 
 /**
+ * @author zhangyonghao
  * 用户错误码
  */
 public enum UserErrorCodeEnum implements IErrorCode {

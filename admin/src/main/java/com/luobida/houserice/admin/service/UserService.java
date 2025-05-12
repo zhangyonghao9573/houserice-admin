@@ -5,6 +5,7 @@ import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
 import com.luobida.houserice.admin.dto.resp.user.UserLoginRespDTO;
 
 /**
+ * @author zhangyonghao
  * 用户服务接口
  */
 public interface UserService {

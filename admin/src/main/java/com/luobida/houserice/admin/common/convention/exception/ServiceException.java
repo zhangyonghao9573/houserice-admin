@@ -5,6 +5,10 @@ import com.luobida.houserice.admin.common.convention.errorcode.IErrorCode;
 
 import java.util.Optional;
 
+/**
+ * @author zhangyonghao
+ * 服务端异常
+ */
 public class ServiceException extends AbstractException{
 
 

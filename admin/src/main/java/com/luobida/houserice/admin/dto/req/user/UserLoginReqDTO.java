@@ -3,6 +3,7 @@ package com.luobida.houserice.admin.dto.req.user;
 import lombok.Data;
 
 /**
+ * @author zhangyonghao
  * 用户登录请求参数
  */
 @Data

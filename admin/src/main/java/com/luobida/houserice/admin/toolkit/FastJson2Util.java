@@ -5,6 +5,7 @@ import com.alibaba.fastjson2.util.ParameterizedTypeImpl;
 import java.lang.reflect.Type;
 
 /**
+ * @author zhangyonghao
  *  FastJson2 工具类
  */
 public class FastJson2Util {

@@ -3,6 +3,10 @@ package com.luobida.houserice.admin.common.enums;
 import com.luobida.houserice.admin.common.convention.errorcode.IErrorCode;
 import lombok.AllArgsConstructor;
 
+/**
+ * @author zhangyonghao
+ * 用户注册错误码枚举
+ */
 @AllArgsConstructor
 public enum UserRegisterErrorCodeEnum implements IErrorCode {
     USER_REGISTER_FAIL("A006000", "用户注册失败"),

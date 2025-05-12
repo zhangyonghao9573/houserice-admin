@@ -2,6 +2,10 @@ package com.luobida.houserice.admin.common.cache;
 
 import lombok.NonNull;
 
+/**
+ * @author zhangyonghao
+ * 抽象缓存
+ */
 public interface ICache {
 
     /**

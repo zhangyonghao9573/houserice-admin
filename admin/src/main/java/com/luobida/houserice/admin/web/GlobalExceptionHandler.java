@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Objects;
 import java.util.Optional;
+
+/**
+ * @author zhangyonghao
+ * 全局异常拦截器
+ */
 @Component("globalExceptionHandlerByAdmin")
 @Slf4j
 @RestControllerAdvice

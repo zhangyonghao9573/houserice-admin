@@ -2,6 +2,10 @@ package com.luobida.houserice.admin.dto.req.user;
 
 import lombok.Data;
 
+/**
+ * @author zhangyonghao
+ * 用户注册请求参数
+ */
 @Data
 public class UserRegisterReqDTO {
     /**

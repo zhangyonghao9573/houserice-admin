@@ -6,6 +6,7 @@ import com.luobida.houserice.admin.dto.req.user.UserRegisterReqDTO;
 import static com.luobida.houserice.admin.common.enums.ChainMarkEnum.USER_REGISTER_CHAIN_MARK;
 
 /**
+ * @author zhangyonghao
  * 抽象用户注册责任链
  */
 public interface UserRegisterChainFilter extends AbstractChainHandler<UserRegisterReqDTO> {

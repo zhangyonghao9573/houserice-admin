@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
+ * @author zhangyonghao
  * 持久层对象公共属性自动注入配置
  */
 @Component

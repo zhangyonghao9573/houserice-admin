@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import static com.luobida.houserice.admin.common.enums.UserErrorCodeEnum.USER_NAME_EXIST;
 
 /**
+ * @author zhangyonghao
  * 检查用户是否注册
  */
 @RequiredArgsConstructor
