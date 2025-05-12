@@ -23,7 +23,7 @@ public class UserController {
      * @param requestParam
      * @return
      */
-    @PostMapping()
+    @PostMapping("register")
     public Result register(@RequestBody UserRegisterReqDTO requestParam) {
         userService.register(requestParam);
         return Results.success();
@@ -32,9 +32,12 @@ public class UserController {
     /**
      * 用户登录
      */
-    @GetMapping
-    public Result login(UserLoginReqDTO requestParam) {
-
+    @PostMapping
+    public Result login(@RequestBody UserLoginReqDTO requestParam) {
         return Results.success(userService.login(requestParam));
+    }
+    @DeleteMapping
+    public Result test(UserLoginReqDTO requestParam) {
+        return Results.success();
     }
 }

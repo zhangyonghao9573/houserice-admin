@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.luobida.houserice.admin.common.cache.DistributedCache.DistributedCache;
 import com.luobida.houserice.admin.common.convention.exception.ClientException;
 import com.luobida.houserice.admin.common.convention.exception.ServiceException;
-import com.luobida.houserice.admin.common.dto.UserInfoDTO;
+import com.luobida.houserice.admin.common.user.UserInfoDTO;
 import com.luobida.houserice.admin.common.filter.AbstractChainContext;
 import com.luobida.houserice.admin.dao.entity.UserDao;
 import com.luobida.houserice.admin.dao.mapper.UserMapper;
@@ -24,7 +24,6 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 import static com.luobida.houserice.admin.common.constant.RedisCacheConstant.LOCK_USER_REGISTER_LOCK;
