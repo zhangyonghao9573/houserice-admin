@@ -12,3 +12,10 @@ spring:
       host: 127.0.0.1
       port: 6379
       password: qq1104380920
+
+house-rice:
+  filters:
+    token:
+      blanklist:
+        - /api/user/register
+        - /api/user/login
