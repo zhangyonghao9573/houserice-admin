@@ -17,5 +17,6 @@ house-rice:
   filters:
     token:
       blanklist:
-        - /api/user/register
-        - /api/user/login
+        - /api/houserice/admin/v1/user
+        - /api/houserice/admin/v1/user/register
+
